@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<link rel="stylesheet" type="text/css" href="style.css">
+	<script type="text/javascript">
+
+
+		let score = 0;
+		function checkAnswer(inputId, answers) {
+			let userAnswer = document.getElementById(inputId).value;
+			userAnswer = userAnswer.toLowerCase();
+			for (let i = 0; i < answers.length; i++) {
+				if (userAnswer == answers[i]) {
+					score++;
+					break;
+				}
+			}
+		}
+
+		function checkAnswers() {
+
+			checkAnswer("userAnswer1",["dream", "dreams"]);
+			checkAnswer("userAnswer2",["nautical", "shark bite"]);
+			checkAnswer("userAnswer3",["chess", "dead"]);
+
+			alert("You solved " + score + " riddles");
+		}
+	</script>
+
+
+	<title>GeekBrains student's personal website</title>
+</head>
+<body>
+
+	<div class="content">
+		<div class="header">
+			<a href="index.html">Main</a>
+			<a href="puzzle.html">Puzzles</a>
+			<a href="guess.html">Guessing</a>
+		</div>
+
+		<div class="contentWrap">
+			<div class="content">
+				<h1>Puzzle game</h1>
+
+				<div class="box">
+
+					<p>What can be seen with closed eyes?</p>
+					<input type="text" id="userAnswer1" placeholder="Type your answer"><p>
+
+						<p>What kind of desease no one gets sick on land?</p>
+						<input type="text" id="userAnswer2" placeholder="Type your answer"><p>
+
+							<p>What horse doesn't eat oats?</p>
+							<input type="text" id="userAnswer3" placeholder="Type your answer">
+
+							<br>
+							<a href="#" onclick="checkAnswers()">Answer</a>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="footer">
+				Copyright &copy; All rights is received
+			</div>
+		</body>
+		</html>

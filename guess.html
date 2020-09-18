@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<link rel="stylesheet" type="text/css" href="style.css">
+	<script type="text/javascript">
+
+		let answer =  parseInt(Math.random() * 100);
+		let tryCount = 0;
+		let maxTryCount = 3;
+
+		function readInt() {
+			return +document.getElementById("userAnswer").value;
+		}
+		
+		function write(text) {
+			document.getElementById('info').innerHTML = text;
+		}
+
+		function hide(id) {
+			document.getElementById(id).style.display = "none";
+		}
+
+		function guess() {
+			tryCount++;
+
+			let userAnswer = readInt();
+			if (userAnswer == answer) {
+				write("<b>Congrutulaton, you guess!</b>");
+				hide("button");
+				hide("userAnswer");
+			}else if (tryCount >= maxTryCount) {
+				write("You lost<br>Correct answer: " + answer);
+				hide("button");
+				hide("userAnswer");
+			}
+
+			else if(userAnswer > answer){
+				write("Guess number small");
+			}else if(userAnswer < answer){
+				write("Guess number much");
+			}
+		}
+
+	</script>
+
+
+	<title>GeekBrains student's personal website</title>
+</head>
+<body>
+
+	<div class="content">
+		<div class="header">
+			<a href="index.html">Main</a>
+			<a href="puzzle.html">Puzzles</a>
+			<a href="guess.html">Guessing</a>
+		</div>
+
+		<div class="contentWrap">
+			<div class="content">
+				<h1>Guessing game</h1>
+
+				<div class="box">
+					<p id="info">Guess a number of 0 for 100</p>
+					<input type="text" id="userAnswer">
+					<br>
+					<a href="#" onClick="guess()" id="button" >Start</a>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="footer">
+		Copyright &copy; All rights is received
+	</div>
+</body>
+</html>
